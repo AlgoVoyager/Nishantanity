@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{% block title %}Contact {% endblock title %}
+{% block body %}
+
+<div class="container">
+<h1 align="center">CONTACT ME</h1>
+
+
+<h5 class="mb-3 mt-4">Details will be sent to my database.</h3>
+<h6 class="mb-3">Will try to contact you back soon.</h4>
+<form method='POST' action='/contact' >
+{% csrf_token %}
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name :- </label>
+        <input type="text" class="form-control" id="name" name='name' placeholder="your name here">
+      </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address :-</label>
+      <input type="email" class="form-control" id="email" name='email' placeholder="name@example.com">
+    </div>
+    
+    
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Description :-</label>
+      <textarea class="form-control" id="desc" name='desc' rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-info">Submit</button>
+  </form>
+
+
+
+
+
+
+
+</div>
+{% endblock body %}
