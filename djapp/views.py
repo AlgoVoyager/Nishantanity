@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse
 from datetime import datetime
-from djapp.models import Contact
+from djapp.models import Contact,raw_text
 
 
 # Create your views here.
@@ -23,7 +23,9 @@ def contact(request):
 def analyze(request):
     #Get the text
     djtext = request.POST.get('text', 'default')
-    
+    rawtext = raw_text(RawText=djtext,rdate = datetime.today())
+    rawtext.save()
+    print(djtext)
     # Check checkbox values
     removepunc = request.POST.get('removepunc', 'off')
     fullcaps = request.POST.get('fullcaps', 'off')
